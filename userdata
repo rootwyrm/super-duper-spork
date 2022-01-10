@@ -1,0 +1,15 @@
+#!/bin/sh
+################################################################################
+## Simple demo script that assumes Amazon Linux
+## Just pings an endpoint to register a live host
+################################################################################
+
+apt-get -qy update && apt-get install -qy curl
+
+## Ping an endpoint we haven't built yet to say we're alive
+curl -X POST -F 'node=$(hostname)' https://lambda.endpoint/goes/here
+if [ $? -ne 0 ]; then
+	## We failed to register as live
+	printf 'System registration as live failed!\n'
+	exit 255
+fi

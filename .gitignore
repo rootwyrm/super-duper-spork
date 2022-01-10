@@ -1,0 +1,9 @@
+*.swp
+*.swo
+*.tmp
+SYSTEMS.md
+*/tmp/*
+*tmp
+todo
+dbt*
+*/Dockerfile.test
